@@ -1,0 +1,4 @@
+- Support for multiple contexts is buggy ; need to
+check if it's supposed to work with EGL ;
+
+- Fix all functions with uppercase comments ;-).
