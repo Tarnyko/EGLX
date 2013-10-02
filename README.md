@@ -1,14 +1,14 @@
 EGLX 0.1
 ========
 
-	A X11/GLX Wrapper for EGL/Wayland
+<strong>A X11/GLX Wrapper for EGL/Wayland
 
-	By Tarnyko <tarnyko@tarnyko.net>
+by Tarnyko <tarnyko@tarnyko.net></strong>
 
 
 ## Description
 
- EGLX wraps basic X11/GLX calls, used by popular Unix OpenGL applications, to EGL/Wayland ones.
+ <strong>EGLX</strong> wraps basic X11/GLX calls, used by popular Unix OpenGL applications, to EGL/Wayland ones.
 
  Coupled with the [jwzGLES wrapper](http://www.jwz.org/blog/2012/06/i-have-ported-xscreensaver-to-the-iphone/), it permits to run legacy OpenGL applications on a Wayland compositor, eventually using hardware acceleration. 
 
@@ -20,13 +20,14 @@ EGLX 0.1
 
 ## Usage
 
- Create libEGLX.so by running :
+* Create libEGLX.so by running :
 ./compile_eglx.sh
  Or for some early GTK+3/X11 wrapping, better run :
 ./compile_eglx-withgtk3.sh
 
  Put the resulting libEGLX.so and all EGLX*.h files in the same directory as the GLX application you want to wrap.
- Then take this application source code, glxgears.c e.g., and replace GLX headers such as :
+
+* Then take this application source code, glxgears.c e.g., and replace GLX headers such as :
 ```
 #include <X11/Xlib.h>
 #include <GL/glx.h>
@@ -37,15 +38,15 @@ EGLX 0.1
 #include "EGLX.h"
 ```
 
- Then, in the app "main()" function, add at the beginning :
+* Then, in the app "main()" function, add at the beginning :
 ```
 EGLX_main(0);
 ```
 
- Then compile your application with this kind of command :
-<strong>gcc glxgears.c -o glxgears `pkg-config --cflags --libs wayland-client wayland-egl egl` libEGLX.so</strong>
+*  Then compile your application with this kind of command :
+<strong>gcc glxgears.c -o glxgears ``pkg-config --cflags --libs wayland-client wayland-egl egl`` libEGLX.so</strong>
 
- If the application uses desktop GL, thus pulling X11 :
+* If the application uses desktop GL, thus pulling X11 :
 ```
 #include <GL/gl.h>
 ```
@@ -56,14 +57,14 @@ EGLX_main(0);
 ```
 
  And then compile using :
-<strong>gcc glxgears.c -o glxgears `pkg-config --cflags --libs wayland-client wayland-egl egl glesv1_cm` libEGLX.so libjwzgles.so -DHAVE_JWZGLES -DGL_VERSION_ES_CM_1_0</strong>
+<strong>gcc glxgears.c -o glxgears ``pkg-config --cflags --libs wayland-client wayland-egl egl glesv1_cm`` libEGLX.so libjwzgles.so -DHAVE_JWZGLES -DGL_VERSION_ES_CM_1_0</strong>
 
- If the app does some GTK+3 X11 calls (GtkGLArea3 e.g.), don't forget to comment :
+ (If the app does some GTK+3 X11 calls (GtkGLArea3 e.g.), don't forget to comment :
 ```
 #include <gdk/gdkx.h>
 ```
  and to add on your compilation line :
-<strong>`pkg-config --cflags --libs gtk+-3.0`</strong>
+<strong>``pkg-config --cflags --libs gtk+-3.0``</strong>)
 
 ## Examples
 
