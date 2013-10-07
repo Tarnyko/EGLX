@@ -628,7 +628,7 @@ GLXContext EGLX_glXGetCurrentContext (void)
 Bool EGLX_glXQueryVersion (Display* dpy, int *major, int *minor)
 {
 	if (major != NULL) *major = 1;
-	if (major != NULL) *minor = 4;
+	if (major != NULL) *minor = 2;
 	return True;
 }
 
