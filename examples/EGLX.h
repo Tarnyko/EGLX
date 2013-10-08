@@ -391,6 +391,10 @@ extern struct wl_egl_window* EGLX_wl_egl_window_get (int win);
 #define glXGetClientString		EGLX_glXGetClientString
 #define glXGetProcAddressARB		EGLX_glXGetProcAddressARB
 
+ /* unimplemented APIs ; we are 1.2, there are >= 1.3 */
+#define glXMakeContextCurrent(D,DR1,DR2,C) False
+#define glXChooseFBConfig(D,S,DA,R)	   NULL
+#define glXGetVisualFromFBConfig(D,C)      NULL
 
 
 
